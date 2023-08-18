@@ -70,36 +70,50 @@ introduces the integration of tracking into object detection by utilizing tracki
 
 ### FlowNet
 [[arxiv]](https://arxiv.org/abs/1504.06852)
+
 FlowNet introduces an optical flow network that estimates motion between frames, enabling feature enhancement through adaptive aggregation and improving video object detection
 
 ### Flow-Guided Feature Aggregation for Video Object Detection
 [[arxiv]](https://arxiv.org/abs/1703.10025) [[code]](https://github.com/msracver/Flow-Guided-Feature-Aggregation)
+
 ![1692264831118](image/README/flow1.png)
+
 Incorporating an optical flow network, the method extracts per-frame features, enhances them through warped neighboring frame features using adaptive weighting, and feeds the aggregated features into a detection network, as demonstrated in Flow-Guided Feature Aggregation for Video Object Detection.
 
 ### Fully Motion-Aware Network for Video Object Detection
 [[paper]](http://openaccess.thecvf.com/content_ECCV_2018/papers/Shiyao_Wang_Fully_Motion-Aware_Network_ECCV_2018_paper.pdf) [[code]](https://github.com/wangshy31/MANet_for_Video_Object_Detection)
+
 ![1692267596810](image/README/flow2.png)
+
 The paper introduces MANet, a novel approach for video object detection that combines pixel-level and instance-level calibration by extracting frame features, utilizing optical flow, predicting instance movements, and fusing features for improved accuracy.
 
 ### End-to-End Video Object Detection with Spatial-Temporal Transformers
 [[arxiv]](https://arxiv.org/abs/2201.05047)[[code]](https://github.com/SJTU-LuHe/TransVOD)
+
 ![transformer](image/README/transformer.png)
+
 End-to-End Video Object Detection with Spatial-Temporal Transformer leverages the temporal cues in video clips through a Transformer-based approach, treating the entire clip as a sequence and frames as words, enhancing object interactions both spatially and temporally. Key to this is the use of object queries akin to DETR, encoding instance-aware information, and the integration of temporal Transformers to connect sparse query embeddings, leveraging output memory from the DETR Transformer encoder to jointly model spatial and temporal information. This clip-level input Transformer approach accelerates video object detection, catering to practical applications that demand efficient detection in dynamic video contexts
 
 
 ### Memory Enhanced Global-Local Aggregation for Video Object Detection
 [[arxiv]](https://arxiv.org/abs/2003.12063)[[code]](https://github.com/Scalsol/mega.pytorch)
+
 ![MEGA](image/README/MEGA.png)
+
 The paper addresses two challenges in video object detection: the effective utilization of global semantic information across frames and the localization of objects within frames lacking clear context. To tackle the first issue, the authors introduce a base model comprising a global aggregation stage where global information is integrated into local frame features using relation modules. Subsequently, a local aggregation stage further enhances features of key frames. This resolves the problem of separate consideration of global and local information. To combat the second challenge, the paper introduces the Long Range Memory (LRM) module, inspired by Transformer-XL, which efficiently extends the observation range of key frames by storing and reusing intermediate features. This approach significantly amplifies the available global and local information. In combination, these advancements offer a holistic solution that merges global and local information while efficiently exploiting video data.
 
 
 ### Mobile Video Object Detection with Temporally-Aware Feature Maps
 [[arxiv]](https://arxiv.org/abs/1711.06368v2) [[code]](https://github.com/tensorflow/models/tree/master/research/lstm_object_detection)
+
 The paper introduces a real-time video object detection model designed for energy-efficient mobile and embedded devices. The approach combines rapid single-image object detection techniques with Convolutional Long Short-Term Memory (LSTM) layers, forming an interleaved recursive-convolutional architecture. Additionally, a resource-efficient Bottleneck-LSTM layer is proposed, substantially reducing computational costs compared to conventional LSTMs. The network employs Bottleneck-LSTM to refine and propagate inter-frame feature mappings, thus achieving temporal awareness.
+
 ![LSTM](image/README/LSTM.png)
+
 The method employs the MobileNet architecture as a foundation for the SSD framework, and it replaces all convolutional layers in the SSD feature layers with depth-wise separable convolutions. The MobileNet backbone network is pruned by removing the final layers. This approach seamlessly integrates convolutional LSTM layers into our single-frame detector. Experimentally, multiple temporal modules (LSTMs) are inserted at various positions after feature maps, enabling the acquisition and learning of temporal-related information.
+
 ![LSTM_result](image/README/LSTM_result.png)
+
 in particular, Due to resource constraints on edge devices, many temporal methods for video object detection, such as optical flow and attention-based techniques, require substantial computational resources and memory, making them unsuitable for resource-limited cameras in edge scenarios. Consequently, introducing a lightweight temporal RNN module is a viable solution, as it does not impose significant computational overhead. This approach aligns with practical deployment needs, ensuring compatibility with edge cameras' limited resources.
 
 
